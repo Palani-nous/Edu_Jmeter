@@ -17,3 +17,12 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: JMeterInstaller@0
+  inputs:
+    jmeterVersion: '5.2'
+    - task: CmdLine@2
+      inputs:
+        script: 'jmeter -n -t Edureka.jmx -l demo.jtl -e -o demoReport'
+        - task: PublishReleaseArtifact@1
+          inputs:
+            artifactPath: 
