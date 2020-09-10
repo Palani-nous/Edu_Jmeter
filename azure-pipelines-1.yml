@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+tasks: 
+- task: Ant@1
+displayName: Execute the jmeter scrip'
+  inputs:
+    buildFile: 'build.xml'
+    options: 
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion' # options:jDKVersion, path
+
+
+
